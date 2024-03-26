@@ -1,0 +1,8 @@
+echo "Hostname:        $(hostname)"
+echo "OS:              $(cat /etc/*-release | grep "^PRETTY_NAME=" | cut -d= -f2 | tr -d '"' | cut -d' ' -f1-2)"
+echo "Kernel:          $(uname -r)"
+echo "Processor Name:  $(cat /proc/cpuinfo | grep "model name" | cut -d: -f 2 | head -1)"
+echo "Architecture:    $(uname -m)"
+echo "Memory:          $(free -h | grep "Mem:" | tr -s " " | cut -d " " -f 2)"
+echo "Swap Memory:     $(free -h | grep "Swap" | tr -s " " | cut -d " " -f 2)"
+echo "Uptime:          $(uptime | cut -d " " -f4- | cut -d "," -f1)"
